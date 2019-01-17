@@ -6,5 +6,7 @@ namespace lab08_linq.Classes
 {
     class RootObject
     {
+        public string type { get; set; }
+        public List<Feature> features { get; set; }
     }
 }

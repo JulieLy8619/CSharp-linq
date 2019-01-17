@@ -24,6 +24,8 @@ We were tasked to read in a JSON file and then use LINQ to answer the following 
 to figure out how to install NuGet and Newtonsoft.json
 https://docs.microsoft.com/en-us/nuget/quickstart/install-and-use-a-package-in-visual-studio
 
+to help with serialized
+https://www.newtonsoft.com/json/help/html/SerializingJSON.htm
 
 
 
