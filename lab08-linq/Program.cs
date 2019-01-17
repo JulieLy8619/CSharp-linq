@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using lab08_linq.Classes;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -22,7 +23,18 @@ namespace lab08_linq
             RootObject tempRoot = JsonConvert.DeserializeObject<RootObject>(outputString);
 
 
-            //LINQ 
+            //LINQ
+            //List<Feature> neighborhoodsToDisplay = new List<Feature> {  };
+            //Properties[] neighborhoodsToDisplay = new Properties[];
+
+            var temp = from neighborhoodTemp in tempRoot.features
+                       where neighborhoodTemp.properties.neighborhood !=null
+                       select neighborhoodTemp;
+
+            foreach (var item in temp)
+            {
+                Console.WriteLine(item.properties.neighborhood);
+            }
 
 
             //RootObject json = ConvertJson();
@@ -36,7 +48,7 @@ namespace lab08_linq
             //{
             //    Console.WriteLine(readFile[i]);
             //}
-
+            Console.ReadLine(); //to stop the program from auto exit
         }
 
 
