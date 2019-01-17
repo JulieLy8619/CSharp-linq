@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.168
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lab08-linq", "lab08-linq\lab08-linq.csproj", "{B9AC7CB0-FC8C-492A-90C8-32FB032265BF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B9AC7CB0-FC8C-492A-90C8-32FB032265BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9AC7CB0-FC8C-492A-90C8-32FB032265BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9AC7CB0-FC8C-492A-90C8-32FB032265BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9AC7CB0-FC8C-492A-90C8-32FB032265BF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A8D0323A-A38A-48CD-BC80-5E57C3499197}
+	EndGlobalSection
+EndGlobal
