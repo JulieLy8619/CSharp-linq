@@ -30,3 +30,5 @@ https://www.newtonsoft.com/json/help/html/SerializingJSON.htm
 used to help read json to determine classes:
 http://json2csharp.com/
 
+wrote out queries (1/2/3/4) with class/Amanda
+

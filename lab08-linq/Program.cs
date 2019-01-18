@@ -27,27 +27,43 @@ namespace lab08_linq
             //List<Feature> neighborhoodsToDisplay = new List<Feature> {  };
             //Properties[] neighborhoodsToDisplay = new Properties[];
 
-            var temp = from neighborhoodTemp in tempRoot.features
+            //query 1
+            var query1 = from neighborhoodTemp in tempRoot.features
+                       select neighborhoodTemp;
+            foreach (var item in query1)
+            {
+                Console.WriteLine(item.properties.neighborhood);
+            }
+            Console.WriteLine("=============================");
+
+            //query 2
+            var query2 = from neighborhoodTemp in query1
                        where neighborhoodTemp.properties.neighborhood !=null
                        select neighborhoodTemp;
 
-            foreach (var item in temp)
+            foreach (var item in query2)
+            {
+                Console.WriteLine(item.properties.neighborhood);
+            }
+            Console.WriteLine("=============================");
+
+            //query 3
+            var query3 = query2.Distinct();
+            foreach (var item in query3)
+            {
+                Console.WriteLine(item.properties.neighborhood);
+            }
+            Console.WriteLine("=============================");
+
+            //query 4
+            var query4 = tempRoot.features.Where(n => n.properties.neighborhood.Length > 0)
+                .GroupBy(global => global.properties.neighborhood)
+                .Select(s => s.First()); //why is this .First
+            foreach (var item in query4)
             {
                 Console.WriteLine(item.properties.neighborhood);
             }
 
-
-            //RootObject json = ConvertJson();
-            //pring to verify I read the json file
-            //Console.WriteLine("what is the json " + json);
-            //Console.WriteLine("trying to drill into" + tempRoot.type); //philip says i can't test to see data is in this until i do a LINQ query
-            //its reading in as one
-
-            //print
-            //for (int i =0; i < readFile.Length; i++)
-            //{
-            //    Console.WriteLine(readFile[i]);
-            //}
             Console.ReadLine(); //to stop the program from auto exit
         }
 
