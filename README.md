@@ -21,11 +21,12 @@ We were tasked to read in a JSON file and then use LINQ to answer the following 
 # Solution
 
 # Contributors
-to figure out how to install NuGet and Newtonsoft.json
+to figure out how to install NuGet and Newtonsoft.json:
 https://docs.microsoft.com/en-us/nuget/quickstart/install-and-use-a-package-in-visual-studio
 
-to help with serialized
+to help with serialized:
 https://www.newtonsoft.com/json/help/html/SerializingJSON.htm
 
-
+used to help read json to determine classes:
+http://json2csharp.com/
 
