@@ -11,7 +11,7 @@ At this time, it just runs, it is not interactive with a user.
 
 # Solution
 Here is what the final list looked like (no null values or duplictes)
-![console](./images/lab08console.jpg)
+![console](./images/lab8console.jpg)
 
 # Contributors
 to figure out how to install NuGet and Newtonsoft.json:
