@@ -18,7 +18,11 @@ We were tasked to read in a JSON file and then use LINQ to answer the following 
 - Rewrite the queries from above, and consolidate all into one single query.
 - Rewrite at least one of these questions only using the opposing method (example: Use LINQ instead of a Lambda and vice versa.)
 
+At this time, it just runs, it is not interactive with a user.
+
 # Solution
+Here is what the final list looked like (no null values or duplictes)
+![](./images)
 
 # Contributors
 to figure out how to install NuGet and Newtonsoft.json:
@@ -31,4 +35,5 @@ used to help read json to determine classes:
 http://json2csharp.com/
 
 wrote out queries (1/2/3/4) with class/Amanda
+Amanda said we don't have to write tests for this lab
 

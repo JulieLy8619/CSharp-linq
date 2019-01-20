@@ -22,44 +22,51 @@ namespace lab08_linq
             // convert the json to classes
             RootObject tempRoot = JsonConvert.DeserializeObject<RootObject>(outputString);
 
-
-            //LINQ
-            //List<Feature> neighborhoodsToDisplay = new List<Feature> {  };
-            //Properties[] neighborhoodsToDisplay = new Properties[];
-
+            Console.WriteLine("============query 1 All the neighborhoods=================");
             //query 1
-            var query1 = from neighborhoodTemp in tempRoot.features
-                       select neighborhoodTemp;
+            var query1 = from neighborhoodTemp1 in tempRoot.features
+                         select neighborhoodTemp1;
             foreach (var item in query1)
             {
                 Console.WriteLine(item.properties.neighborhood);
             }
-            Console.WriteLine("=============================");
+            Console.WriteLine("============query 2 Took out the Null neighborhoods=================");
 
             //query 2
-            var query2 = from neighborhoodTemp in query1
-                       where neighborhoodTemp.properties.neighborhood !=null
-                       select neighborhoodTemp;
+            var query2 = from neighborhoodTemp2 in query1
+                       where neighborhoodTemp2.properties.neighborhood != ""
+                       select neighborhoodTemp2;
 
             foreach (var item in query2)
             {
                 Console.WriteLine(item.properties.neighborhood);
             }
-            Console.WriteLine("=============================");
+            Console.WriteLine("==============query 3 only the distinct neighborhoods===============");
 
             //query 3
-            var query3 = query2.Distinct();
+            //this takes the previous list and then groups all the same named neighborhoods and then selectes just the first of the groups therefore making it distinct
+            var query3 = query2.GroupBy(g => g.properties.neighborhood).Select(s => s.First());
             foreach (var item in query3)
             {
                 Console.WriteLine(item.properties.neighborhood);
             }
-            Console.WriteLine("=============================");
-
+            Console.WriteLine("=============query 4 consolidated query================");
+            
             //query 4
-            var query4 = tempRoot.features.Where(n => n.properties.neighborhood.Length > 0)
-                .GroupBy(global => global.properties.neighborhood)
-                .Select(s => s.First()); //why is this .First
+            var query4 = from neighborhoodTemp4 in tempRoot.features
+                         where neighborhoodTemp4.properties.neighborhood != ""
+                         group neighborhoodTemp4 by neighborhoodTemp4.properties.neighborhood into hoodGroup
+                         select hoodGroup.First();
             foreach (var item in query4)
+            {
+                Console.WriteLine(item.properties.neighborhood);
+            }
+            Console.WriteLine("============Query 5 re-write query 3 in Linq=================");
+            //query 5; rewriting 3 in linq
+            var query5 = from neighborhoodTemp4 in tempRoot.features
+                         where neighborhoodTemp4.properties.neighborhood != ""
+                         select neighborhoodTemp4;
+            foreach (var item in query5)
             {
                 Console.WriteLine(item.properties.neighborhood);
             }
@@ -67,23 +74,5 @@ namespace lab08_linq
             Console.ReadLine(); //to stop the program from auto exit
         }
 
-
-        //public static RootObject ConvertJson()
-        //{
-            //using (StreamReader reader = File.OpenText(@"C:\Users\Julie L\Projects\cf401\githubrepository\labs\lab08\lab08-linq\data.json"))
-            //{
-            //    //JObject readJsonFile = (JObject)JToken.ReadFrom(new JsonTextReader(reader));
-            //    string readJsonFile = (string)JToken.ReadFrom(new JsonTextReader(reader));
-            //    JObject readJsonFileToo = JObject.Parse(readJsonFile);
-            //    //philip hints to bring o into a string and then use jsonconvert()
-            //    //then philip suggest to give that to the root and the root will do super magic that none of TAs can tell of the underthe hood
-            //    //string output = JsonConvert.SerializeObject(readJsonFile);
-            //    //RootObject deserializedProduct = JsonConvert.DeserializeObject<RootObject>(output);
-            //    //return readJsonFile;
-            //}
-
-            //if convert to path do the ../../../data.json (don't worry about the @
-            
-        //}
     }
 }
